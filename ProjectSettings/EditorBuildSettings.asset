@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Samples/XR Interaction Toolkit/2.3.2/Starter Assets/DemoScene.unity
-    guid: 319dafa5c80f29f428dc1e0d03f04177
+    path: Assets/Scenes/PassThrough.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 12ace8ecd538ffa42a11cfa4c85adcf3, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 03d8c60d683f0204eaae0a33f6675ce1, type: 2}
