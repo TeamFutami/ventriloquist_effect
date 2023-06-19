@@ -4,7 +4,8 @@ using UnityEngine.Video;
 
 public class VideoManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private VideoPlayer nVideoPlayer;
+    [SerializeField] private VideoPlayer sVideoPlayer;
     
     public void PlayVideo()
     {
@@ -19,12 +20,14 @@ public class VideoManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void RPCPlayVideo()
     {
-        videoPlayer.Play();
+        nVideoPlayer.Play();
+        sVideoPlayer.Play();
     }
     
     [PunRPC]
     private void RPCResetVideo()
     {
-        videoPlayer.Stop();
+        nVideoPlayer.Stop();
+        sVideoPlayer.Stop();
     }
 }
