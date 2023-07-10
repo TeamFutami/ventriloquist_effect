@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class PrimaryReactor : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class PrimaryReactor : MonoBehaviour
     
     public void OnPrimary2DAxisEvent(Vector2 value)
     {
-        textMeshProUgui.text = value.ToString();
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
@@ -25,8 +25,39 @@ public class PrimaryReactor : MonoBehaviour
     
     private IEnumerator OnPrimary2DAxisEventCoroutine(Vector2 value)
     {
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("OnPrimary2DAxisEventCoroutine");
-        _coroutine = null;
+        var x = value.x;
+        var y = value.y;
+
+        if (x==0 && y==0)
+        {
+            yield return new WaitForSeconds(10f);
+            textMeshProUgui.text = "center";
+        }
+        else if (y >= Math.Sqrt(2) / 2)
+        {
+            Debug.Log("上");
+            textMeshProUgui.text = "up";
+        }
+        else if (y <= -Math.Sqrt(2) / 2)
+        {
+            Debug.Log("下");
+            textMeshProUgui.text = "down";
+        }
+        else if(x >= Math.Sqrt(2) / 2)
+        {
+            Debug.Log("右");
+            textMeshProUgui.text = "right";
+        }
+        else if(x <= -Math.Sqrt(2) / 2)
+        {
+            Debug.Log("左");
+            textMeshProUgui.text = "left";
+        }
+        else
+        {
+            textMeshProUgui.text = "";
+        }
+
+        yield return null;
     }
 }
