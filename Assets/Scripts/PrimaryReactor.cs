@@ -2,16 +2,36 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.Serialization;
 
 public class PrimaryReactor : MonoBehaviour
 {
     public PrimaryAxisWatcher primaryAxisWatcher;
     private Coroutine _coroutine;
     [SerializeField] private TextMeshProUGUI textMeshProUgui;
-    
+    [SerializeField] private TextMeshProUGUI timerTextMeshProUgui;
+    [SerializeField] private ArrowTask arrowTask;
+    [SerializeField] private float waitTime = 3f;
+    private float _timer = 0f;
+    private bool _count = false;
+
     private void Start()
     {
         primaryAxisWatcher.primary2DAxisEvent.AddListener(OnPrimary2DAxisEvent);
+        arrowTask.ShowArrow();
+    }
+    
+    private void Update()
+    {
+        if (_count)
+        {
+            _timer += Time.deltaTime;
+            timerTextMeshProUgui.text = _timer.ToString();
+        }
+        else
+        {
+            _timer = 0f;
+        }
     }
     
     public void OnPrimary2DAxisEvent(Vector2 value)
@@ -27,31 +47,41 @@ public class PrimaryReactor : MonoBehaviour
     {
         var x = value.x;
         var y = value.y;
-
+        
         if (x==0 && y==0)
         {
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(waitTime);
             textMeshProUgui.text = "center";
+            arrowTask.ShowArrow();
+            _count = true;
         }
         else if (y >= Math.Sqrt(2) / 2)
         {
             Debug.Log("上");
             textMeshProUgui.text = "up";
+            arrowTask.HideArrow();
+            _count = false;
         }
         else if (y <= -Math.Sqrt(2) / 2)
         {
             Debug.Log("下");
             textMeshProUgui.text = "down";
+            arrowTask.HideArrow();
+            _count = false;
         }
         else if(x >= Math.Sqrt(2) / 2)
         {
             Debug.Log("右");
             textMeshProUgui.text = "right";
+            arrowTask.HideArrow();
+            _count = false;
         }
         else if(x <= -Math.Sqrt(2) / 2)
         {
             Debug.Log("左");
             textMeshProUgui.text = "left";
+            arrowTask.HideArrow();
+            _count = false;
         }
         else
         {
