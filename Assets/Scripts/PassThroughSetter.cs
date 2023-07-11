@@ -1,4 +1,3 @@
-using System;
 using Unity.XR.PXR;
 using UnityEngine;
 using Photon.Pun;

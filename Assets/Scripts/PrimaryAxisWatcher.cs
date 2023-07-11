@@ -61,7 +61,8 @@ public class PrimaryAxisWatcher : MonoBehaviour
             // deviceのprimary2DAxisの値を取得
             if (!device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var tempState)) continue;
             // 値が変化していたらイベントを発行
-            if (tempState == _lastPrimary2DAxisValue) continue;
+            if(tempState == _lastPrimary2DAxisValue) continue;
+            if (tempState.magnitude is not (0 or 1)) continue;
             primary2DAxisEvent.Invoke(tempState);
             _lastPrimary2DAxisValue = tempState;
         }

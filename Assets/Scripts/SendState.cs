@@ -1,6 +1,5 @@
 using UnityEngine;
 using Photon.Pun;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SendState : MonoBehaviourPunCallbacks, IPunObservable

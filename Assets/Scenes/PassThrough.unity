@@ -423,6 +423,7 @@ GameObject:
   - component: {fileID: 485603390}
   - component: {fileID: 485603391}
   - component: {fileID: 485603392}
+  - component: {fileID: 485603393}
   m_Layer: 0
   m_Name: Photon
   m_TagString: Untagged
@@ -523,6 +524,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrCamera: {fileID: 975564559}
+--- !u!114 &485603393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485603385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5000a11c6d8f1449098522ad2ad5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &521241322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,6 +2841,8 @@ MonoBehaviour:
   timerTextMeshProUgui: {fileID: 1614937505}
   arrowTask: {fileID: 1772381416}
   waitTime: 2
+  timerLogger: {fileID: 485603393}
+  timer: 0
 --- !u!114 &1772381415
 MonoBehaviour:
   m_ObjectHideFlags: 0
