@@ -13,7 +13,9 @@ public class PrimaryReactor : MonoBehaviour
     [SerializeField] private float waitTime = 3f;
     [SerializeField] private TimerLogger timerLogger;
     public float timer;
-    private bool _count = false;
+    private bool _count;
+    private string _correctArrow;
+    private string _selectArrow;
 
     private void Start()
     {
@@ -47,7 +49,7 @@ public class PrimaryReactor : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             textMeshProUgui.text = "center";
-            arrowTask.ShowArrow();
+            _correctArrow = arrowTask.ShowArrow();
             _count = true;
             yield break;
         }
@@ -56,26 +58,34 @@ public class PrimaryReactor : MonoBehaviour
         {
             Debug.Log("上");
             textMeshProUgui.text = "up";
+            _selectArrow = "up";
         }
         else if (y <= -Math.Sqrt(2) / 2)
         {
             Debug.Log("下");
             textMeshProUgui.text = "down";
+            _selectArrow = "down";
         }
         else if(x >= Math.Sqrt(2) / 2)
         {
             Debug.Log("右");
             textMeshProUgui.text = "right";
+            _selectArrow = "right";
         }
         else if(x <= -Math.Sqrt(2) / 2)
         {
             Debug.Log("左");
             textMeshProUgui.text = "left";
+            _selectArrow = "left";
         }
         
         arrowTask.HideArrow();
         _count = false;
-        timerLogger.LogTimer(timer);
+        if (timer != 0)
+        {
+            timerLogger.LogTimer(timer);
+            timerLogger.LogArrow(_selectArrow, _correctArrow);
+        }
         timer = 0f;
 
         yield return null;
