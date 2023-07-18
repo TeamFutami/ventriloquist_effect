@@ -20,7 +20,7 @@ public class PrimaryReactor : MonoBehaviour
     private void Start()
     {
         primaryAxisWatcher.primary2DAxisEvent.AddListener(OnPrimary2DAxisEvent);
-        arrowTask.ShowArrow();
+        // arrowTask.ShowArrow();
         timer = 0f;
     }
     
