@@ -19,7 +19,7 @@ public class ArrowTask : MonoBehaviourPunCallbacks
     }
     
     [PunRPC]
-    public string ShowArrow()
+    public (string symbolArrow, string charArrow) ShowArrow()
     {
         var random = new System.Random();
         var num = random.Next(1, 5);
@@ -66,7 +66,7 @@ public class ArrowTask : MonoBehaviourPunCallbacks
                 break;
         }
 
-        return arrow;
+        return (arrow, charArrow);
     }
     
     public void HideArrow()
