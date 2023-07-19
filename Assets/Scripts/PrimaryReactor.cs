@@ -14,6 +14,7 @@ public class PrimaryReactor : MonoBehaviour
     [SerializeField] private TimerLogger timerLogger;
     public float timer;
     private bool _count;
+    private string _question;
     private string _symbolArrow;
     private string _charArrow;
     private string _selectArrow;
@@ -50,7 +51,7 @@ public class PrimaryReactor : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             textMeshProUgui.text = "center";
-            (_symbolArrow, _charArrow) = arrowTask.ShowArrow();
+            (_question, _symbolArrow, _charArrow) = arrowTask.ShowArrow();
             _count = true;
             yield break;
         }
@@ -85,7 +86,7 @@ public class PrimaryReactor : MonoBehaviour
         if (timer != 0)
         {
             timerLogger.LogTimer(timer);
-            timerLogger.LogArrow(_selectArrow, _symbolArrow, _charArrow);
+            timerLogger.LogArrow(_question, _selectArrow, _symbolArrow, _charArrow);
         }
         timer = 0f;
 

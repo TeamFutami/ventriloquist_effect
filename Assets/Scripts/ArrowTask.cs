@@ -12,6 +12,8 @@ public class ArrowTask : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject charDown;
     [SerializeField] private GameObject charLeft;
     [SerializeField] private GameObject charRight;
+    [SerializeField] private GameObject symbolQuestion;
+    [SerializeField] private GameObject charQuestion;
     
     public void ShowArrowCall()
     {
@@ -19,12 +21,13 @@ public class ArrowTask : MonoBehaviourPunCallbacks
     }
     
     [PunRPC]
-    public (string symbolArrow, string charArrow) ShowArrow()
+    public (string question, string symbolArrow, string charArrow) ShowArrow()
     {
         var random = new System.Random();
         var num = random.Next(1, 5);
         string arrow = null;
         string charArrow = null;
+        string question = null;
         switch (num)
         {
             case 1:
@@ -65,8 +68,21 @@ public class ArrowTask : MonoBehaviourPunCallbacks
                 charArrow = "right";
                 break;
         }
+        
+        num = random.Next(1, 3);
+        switch (num)
+        {
+            case 1:
+                symbolQuestion.SetActive(true);
+                question = "symbol";
+                break;
+            case 2:
+                charQuestion.SetActive(true);
+                question = "char";
+                break;
+        }
 
-        return (arrow, charArrow);
+        return (question, arrow, charArrow);
     }
     
     public void HideArrow()
@@ -80,5 +96,8 @@ public class ArrowTask : MonoBehaviourPunCallbacks
         charDown.SetActive(false);
         charLeft.SetActive(false);
         charRight.SetActive(false);
+        
+        symbolQuestion.SetActive(false);
+        charQuestion.SetActive(false);
     }
 }

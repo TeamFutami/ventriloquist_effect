@@ -8,9 +8,9 @@ public class TimerLogger : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(RPCLogTimer), RpcTarget.Others, timer);
     }
     
-    public void LogArrow(string selectArrow, string symbolArrow, string charArrow)
+    public void LogArrow(string question, string selectArrow, string symbolArrow, string charArrow)
     {
-        photonView.RPC(nameof(RPCLogArrow), RpcTarget.Others, selectArrow, symbolArrow, charArrow);
+        photonView.RPC(nameof(RPCLogArrow), RpcTarget.Others, question, selectArrow, symbolArrow, charArrow);
     }
 
     [PunRPC]
@@ -20,9 +20,9 @@ public class TimerLogger : MonoBehaviourPunCallbacks
     }
     
     [PunRPC]
-    private void RPCLogArrow(string selectArrow, string symbolArrow, string charArrow)
+    private void RPCLogArrow(string question, string selectArrow, string symbolArrow, string charArrow)
     {
-        Debug.Log($"selectArrow: {selectArrow}, symbolArrow: {symbolArrow}, charArrow: {charArrow}");
+        Debug.Log($"question: {question}, selectArrow: {selectArrow}, symbolArrow: {symbolArrow}, charArrow: {charArrow}");
         Debug.Log("--------------------");
     }
 }
