@@ -11,4 +11,11 @@ public class StartTask : MonoBehaviourPunCallbacks
         videoManager.PlayVideo();
         arrowTask.ShowArrowCall();
     }
+    
+    public void StopTaskMethod()
+    {
+        videoManager.ResetVideo();
+        arrowTask.HideArrowCall();
+        Debug.Log("StopTaskMethod");
+    }
 }

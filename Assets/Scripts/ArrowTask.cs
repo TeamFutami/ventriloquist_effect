@@ -20,6 +20,11 @@ public class ArrowTask : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(ShowArrow), RpcTarget.Others);
     }
     
+    public void HideArrowCall()
+    {
+        photonView.RPC(nameof(HideArrow), RpcTarget.Others);
+    }
+    
     [PunRPC]
     public (string question, string symbolArrow, string charArrow) ShowArrow()
     {
@@ -85,6 +90,7 @@ public class ArrowTask : MonoBehaviourPunCallbacks
         return (question, arrow, charArrow);
     }
     
+    [PunRPC]
     public void HideArrow()
     {
         arrowUp.SetActive(false);
