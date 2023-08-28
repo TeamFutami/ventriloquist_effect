@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589169, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 485603393}
   - component: {fileID: 485603395}
   - component: {fileID: 485603394}
+  - component: {fileID: 485603396}
   m_Layer: 0
   m_Name: Photon
   m_TagString: Untagged
@@ -1156,6 +1157,18 @@ MonoBehaviour:
   charRight: {fileID: 1889831061}
   symbolQuestion: {fileID: 214638614}
   charQuestion: {fileID: 696552124}
+--- !u!114 &485603396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485603385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cd408b659220f4da61b6b7ea9311ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &513197578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,6 +4231,7 @@ MonoBehaviour:
   arrowTask: {fileID: 485603395}
   waitTime: 2
   timerLogger: {fileID: 485603393}
+  saveCsv: {fileID: 485603396}
   timer: 0
 --- !u!114 &1772381415
 MonoBehaviour:
@@ -4246,6 +4260,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  hand: 2
 --- !u!1 &1862393699
 GameObject:
   m_ObjectHideFlags: 0
