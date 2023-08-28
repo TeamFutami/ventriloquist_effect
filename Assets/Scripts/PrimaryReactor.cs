@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Globalization;
 
 public class PrimaryReactor : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PrimaryReactor : MonoBehaviour
     [SerializeField] private ArrowTask arrowTask;
     [SerializeField] private float waitTime = 3f;
     [SerializeField] private TimerLogger timerLogger;
+    [SerializeField] private SaveCsv saveCsv;
     public float timer;
     private bool _count;
     private string _correctArrow;
@@ -85,6 +87,7 @@ public class PrimaryReactor : MonoBehaviour
         {
             timerLogger.LogTimer(timer);
             timerLogger.LogArrow(_selectArrow, _correctArrow);
+            saveCsv.SaveData(_selectArrow, _correctArrow, timer.ToString(CultureInfo.InvariantCulture));
         }
         timer = 0f;
 

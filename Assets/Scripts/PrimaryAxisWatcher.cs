@@ -25,6 +25,9 @@ public class PrimaryAxisWatcher : MonoBehaviour
     private void OnEnable()
     {
         var allDevices = new List<InputDevice>();
+        // 右手デバイスのみ取得
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, allDevices);
+        
         InputDevices.GetDevices(allDevices);
         foreach(var device in allDevices)
             InputDevices_deviceConnected(device);

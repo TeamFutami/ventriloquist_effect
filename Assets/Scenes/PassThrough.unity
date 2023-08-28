@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 485603393}
   - component: {fileID: 485603395}
   - component: {fileID: 485603394}
+  - component: {fileID: 485603396}
   m_Layer: 0
   m_Name: Photon
   m_TagString: Untagged
@@ -829,6 +830,18 @@ MonoBehaviour:
   charDown: {fileID: 944612917}
   charLeft: {fileID: 306147108}
   charRight: {fileID: 1889831061}
+--- !u!114 &485603396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485603385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66160ac202ef2c045944bbcdb59ec1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &521241322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,6 +3513,7 @@ MonoBehaviour:
   arrowTask: {fileID: 485603395}
   waitTime: 2
   timerLogger: {fileID: 485603393}
+  saveCsv: {fileID: 485603396}
   timer: 0
 --- !u!114 &1772381415
 MonoBehaviour:
