@@ -13,19 +13,22 @@ public class SaveCsv : MonoBehaviourPunCallbacks
         var fileName = DateTime.Now.ToString("yyyyMMddHHmmss");
         var path = Path.Combine(Application.streamingAssetsPath, "log", $"{fileName}.csv");
         _streamWriter = new StreamWriter(path, true, Encoding.GetEncoding("Shift_JIS"));
-        string[] s1 = { "Question", "SelectArrow", "SymbolArrow", "CharArrow", "Time"};
+        string[] s1 = { "Question", "SelectArrow", "SymbolArrow", "CharArrow", "r or w" ,"Time"};
         var s2 = string.Join(",", s1);
         _streamWriter.WriteLine(s2);
         Debug.Log("Write Title");
     }
-    
-    private void Update()
+
+    public void EndTask()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            _streamWriter.Close();
-            Debug.Log("Close");
-        }
+        _streamWriter.WriteLine("EndTask");
+        Debug.Log("EndTask");
+    }
+
+    private void OnApplicationQuit()
+    {
+        _streamWriter.Close();
+        Debug.Log("Close");
     }
 
     public void SaveData(string question, string selectArrow, string symbolArrow, string charArrow, string time)
@@ -39,8 +42,8 @@ public class SaveCsv : MonoBehaviourPunCallbacks
     {
         var correct = question switch
         {
-            "symbol" => selectArrow == symbolArrow ? "correct" : "incorrect",
-            "char" => selectArrow == charArrow ? "correct" : "incorrect",
+            "symbol" => selectArrow == symbolArrow ? "correct" : "wrong",
+            "char" => selectArrow == charArrow ? "correct" : "wrong",
             _ => null
         };
         string[] s1 = { question, selectArrow, symbolArrow, charArrow, correct, time};
