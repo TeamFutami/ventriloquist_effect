@@ -36,6 +36,11 @@ public class SaveCsv : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(RpcSaveData), RpcTarget.Others, question, selectArrow, symbolArrow, charArrow, time);
     }
     
+    public void SaveCount(string count)
+    {
+        photonView.RPC(nameof(RpcSaveCount), RpcTarget.Others, count);
+    }
+    
     
     [PunRPC]
     private void RpcSaveData(string question, string selectArrow, string symbolArrow, string charArrow, string time)
@@ -49,5 +54,12 @@ public class SaveCsv : MonoBehaviourPunCallbacks
         string[] s1 = { question, selectArrow, symbolArrow, charArrow, correct, time};
         var s2 = string.Join(",", s1);
         _streamWriter.WriteLine(s2);
+    }
+    
+    [PunRPC]
+    private void RpcSaveCount(string count)
+    {
+        var s = string.Join(",", count);
+        _streamWriter.WriteLine(s);
     }
 }
