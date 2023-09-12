@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,14 @@ public class PrimaryButtonWatcher : MonoBehaviour
     private bool lastButtonState = false;
     private List<InputDevice> devicesWithPrimaryButton;
 
+    private enum Hand
+    {
+        All,
+        Left,
+        Right
+    }
+    [SerializeField] private Hand hand = Hand.All;
+    
     private void Awake()
     {
         if (primaryButtonPress == null)
@@ -25,9 +34,22 @@ public class PrimaryButtonWatcher : MonoBehaviour
 
     void OnEnable()
     {
-        List<InputDevice> allDevices = new List<InputDevice>();
-        InputDevices.GetDevices(allDevices);
-        foreach(InputDevice device in allDevices)
+        var allDevices = new List<InputDevice>();
+        switch (hand)
+        {
+            case Hand.All:
+                InputDevices.GetDevices(allDevices);
+                break;
+            case Hand.Left:
+                InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, allDevices);
+                break;
+            case Hand.Right:
+                InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, allDevices);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        foreach(var device in allDevices)
             InputDevices_deviceConnected(device);
 
         InputDevices.deviceConnected += InputDevices_deviceConnected;
