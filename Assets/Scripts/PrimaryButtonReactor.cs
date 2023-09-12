@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
+//using TMPro;
 
 public class PrimaryButtonReactor : MonoBehaviour
 {
     public PrimaryButtonWatcher watcher;
     private Coroutine _counter;
     public int count;
+    // text
+    //[SerializeField] private TextMeshProUGUI textMeshProUgui;
 
     void Start()
     {
@@ -23,7 +25,8 @@ public class PrimaryButtonReactor : MonoBehaviour
 
     private IEnumerator Counter()
     {
-        count++;
         yield return null;
+        count++;
+        //textMeshProUgui.text = count.ToString();
     }
 }
