@@ -1136,7 +1136,6 @@ MonoBehaviour:
   videoManager: {fileID: 485603391}
   arrowTask: {fileID: 485603395}
   saveCsv: {fileID: 0}
-  primaryButtonReactor: {fileID: 0}
 --- !u!114 &485603395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,6 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cd408b659220f4da61b6b7ea9311ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  primaryButtonReactor: {fileID: 1772381416}
 --- !u!1 &513197578
 GameObject:
   m_ObjectHideFlags: 0

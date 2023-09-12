@@ -7,6 +7,7 @@ using Photon.Pun;
 public class SaveCsv : MonoBehaviourPunCallbacks
 {
     private StreamWriter _streamWriter;
+    [SerializeField] private PrimaryButtonReactor primaryButtonReactor;
     
     private void Start()
     {
@@ -36,9 +37,14 @@ public class SaveCsv : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(RpcSaveData), RpcTarget.Others, question, selectArrow, symbolArrow, charArrow, time);
     }
     
-    public void SaveCount(string count)
+    public void SaveCount()
     {
-        photonView.RPC(nameof(RpcSaveCount), RpcTarget.Others, count);
+        photonView.RPC(nameof(RpcSaveCount), RpcTarget.Others);
+    }
+
+    private void WriteCount(string count)
+    {
+        photonView.RPC(nameof(RpcWriteCount), RpcTarget.Others, count);
     }
     
     
@@ -57,9 +63,16 @@ public class SaveCsv : MonoBehaviourPunCallbacks
     }
     
     [PunRPC]
-    private void RpcSaveCount(string count)
+    private void RpcSaveCount()
     {
-        var s = string.Join(",", count);
-        _streamWriter.WriteLine(s);
+        WriteCount(primaryButtonReactor.count.ToString());
+    }
+    
+    [PunRPC]
+    private void RpcWriteCount(string count)
+    {
+        string[] s1 = { count };
+        var s2 = string.Join(",", s1);
+        _streamWriter.WriteLine(s2);
     }
 }
