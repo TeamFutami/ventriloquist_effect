@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 485603389}
   - component: {fileID: 485603390}
   - component: {fileID: 485603391}
-  - component: {fileID: 485603392}
+  - component: {fileID: 485603397}
   - component: {fileID: 485603393}
   - component: {fileID: 485603395}
   - component: {fileID: 485603394}
@@ -1231,19 +1231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nVideoPlayer: {fileID: 788535045}
   sVideoPlayer: {fileID: 1991576508}
---- !u!114 &485603392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485603385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d578860bd65df43b2879e3dd6701c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vrCamera: {fileID: 975564559}
 --- !u!114 &485603393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,6 +1293,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryButtonReactor: {fileID: 1772381416}
+--- !u!114 &485603397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485603385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1f2bc003e140b4181303027c8f1204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vrCamera: {fileID: 975564559}
 --- !u!1 &513197578
 GameObject:
   m_ObjectHideFlags: 0
