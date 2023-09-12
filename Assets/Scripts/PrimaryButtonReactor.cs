@@ -13,7 +13,7 @@ public class PrimaryButtonReactor : MonoBehaviour
         watcher.primaryButtonPress.AddListener(OnPrimaryButtonEvent);
     }
 
-    private void OnPrimaryButtonEvent(bool pressed)
+    public void OnPrimaryButtonEvent(bool pressed)
     {
         if (_counter != null)
             StopCoroutine(_counter);

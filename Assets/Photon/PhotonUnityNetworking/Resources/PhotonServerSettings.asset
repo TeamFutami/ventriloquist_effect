@@ -49,6 +49,7 @@ MonoBehaviour:
   - ShowArrow
   - HideArrow
   - RpcSaveData
+  - RpcSaveCount
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 0
+  DevRegionSetOnce: 1
