@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-//using TMPro;
+using TMPro;
 
 public class PrimaryButtonReactor : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class PrimaryButtonReactor : MonoBehaviour
     private Coroutine _counter;
     public int count;
     // text
-    //[SerializeField] private TextMeshProUGUI textMeshProUgui;
+    [SerializeField] private TextMeshProUGUI textMeshProUgui;
 
     void Start()
     {
@@ -27,6 +27,6 @@ public class PrimaryButtonReactor : MonoBehaviour
     {
         yield return null;
         count++;
-        //textMeshProUgui.text = count.ToString();
+        textMeshProUgui.text = count.ToString();
     }
 }

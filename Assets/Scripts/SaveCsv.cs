@@ -66,6 +66,7 @@ public class SaveCsv : MonoBehaviourPunCallbacks
     private void RpcSaveCount()
     {
         WriteCount(primaryButtonReactor.count.ToString());
+        primaryButtonReactor.count = 0;
     }
     
     [PunRPC]
