@@ -72,3 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /[Aa]ssets/[Ss]treamingAssets/log
 /[Aa]ssets/[Ss]treamingAssets/log.meta
+
+/[Aa]ssets/Plugins/Android
+/[Aa]ssets/Plugins/Android.meta
