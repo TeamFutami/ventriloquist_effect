@@ -13,6 +13,14 @@ public class PrimaryAxisWatcher : MonoBehaviour
     private Vector2 _lastPrimary2DAxisValue;
     private List<InputDevice> _deviceWithPrimary2DAxis;
     
+    private enum Hand
+    {
+        All,
+        Left,
+        Right
+    }
+    [SerializeField] private Hand hand = Hand.All;
+    
     private void Awake()
     {
         if (primary2DAxisEvent == null)
@@ -25,7 +33,20 @@ public class PrimaryAxisWatcher : MonoBehaviour
     private void OnEnable()
     {
         var allDevices = new List<InputDevice>();
-        InputDevices.GetDevices(allDevices);
+        switch (hand)
+        {
+            case Hand.All:
+                InputDevices.GetDevices(allDevices);
+                break;
+            case Hand.Left:
+                InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, allDevices);
+                break;
+            case Hand.Right:
+                InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, allDevices);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         foreach(var device in allDevices)
             InputDevices_deviceConnected(device);
 
