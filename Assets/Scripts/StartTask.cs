@@ -1,5 +1,4 @@
 using UnityEngine;
-using Photon.Pun;
 
 public class StartTask : MonoBehaviour
 {
@@ -7,9 +6,9 @@ public class StartTask : MonoBehaviour
     [SerializeField] private ArrowTask arrowTask;
     [SerializeField] private SaveCsv saveCsv;
 
-    public void StartTaskMethod()
+    public void StartTaskMethod(bool isFirst)
     {
-        videoManager.PlayVideo();
+        videoManager.PlayVideo(isFirst);
         arrowTask.ShowArrowCall();
     }
     

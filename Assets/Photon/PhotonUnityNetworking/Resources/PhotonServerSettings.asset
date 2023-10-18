@@ -51,6 +51,8 @@ MonoBehaviour:
   - RpcSaveData
   - RpcSaveCount
   - RpcWriteCount
+  - RPCPlayVideo2
+  - RPCResetVideo2
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
