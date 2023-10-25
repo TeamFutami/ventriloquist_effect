@@ -75,3 +75,6 @@ crashlytics-build.properties
 
 /[Aa]ssets/Plugins/Android
 /[Aa]ssets/Plugins/Android.meta
+
+/[Aa]ssets/Images/news.mp4
+/[Aa]ssets/Images/news.mp4.meta
