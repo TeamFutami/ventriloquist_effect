@@ -22,6 +22,8 @@ public class VideoManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void RPCPlayVideo()
     {
+        nVideoPlayer.gameObject.SetActive(true);
+        sVideoPlayer.gameObject.SetActive(true);
         nVideoPlayer.Play();
         sVideoPlayer.Play();
     }
@@ -29,6 +31,8 @@ public class VideoManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void RPCPlayVideo2()
     {
+        nVideoPlayer2.gameObject.SetActive(true);
+        sVideoPlayer2.gameObject.SetActive(true);
         nVideoPlayer2.Play();
         sVideoPlayer2.Play();
     }
@@ -40,5 +44,9 @@ public class VideoManager : MonoBehaviourPunCallbacks
         sVideoPlayer.Stop();
         nVideoPlayer2.Stop();
         sVideoPlayer2.Stop();
+        nVideoPlayer.gameObject.SetActive(false);
+        sVideoPlayer.gameObject.SetActive(false);
+        nVideoPlayer2.gameObject.SetActive(false);
+        sVideoPlayer2.gameObject.SetActive(false);
     }
 }

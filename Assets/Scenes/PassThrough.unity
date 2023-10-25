@@ -1213,10 +1213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ddfd9c7d6517f489b32f7083c39b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nVideo: {fileID: 461025815}
-  sVideo: {fileID: 397288683}
-  nVideo2: {fileID: 1133917490}
-  sVideo2: {fileID: 1316219079}
   nMask: {fileID: 521241322}
   sMask: {fileID: 1475307097}
 --- !u!114 &485603391
@@ -3019,7 +3015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1133917491
 MonoBehaviour:
   m_ObjectHideFlags: 0
